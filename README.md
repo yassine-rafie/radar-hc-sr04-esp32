@@ -2,7 +2,7 @@
 
 Proyecto de detección de proximidad con visualización en tiempo real mediante radar y dashboard web local.
 
-> ⚠️ **Estado del proyecto:** simulado y verificado en [Tinkercad Circuits](https://www.tinkercad.com/). Aún **no se ha construido en hardware real**. El firmware, el esquema y el cableado están completos y listos para montarse; esta es la fase previa a la construcción física.
+> ⚠️ **Estado del proyecto:** simulado y verificado en [Tinkered](https://www.tinkered.com/). Aún **no se ha construido en hardware real**. El firmware, el esquema y el cableado están completos y listos para montarse; esta es la fase previa a la construcción física.
 
 ## ¿Qué hace?
 
