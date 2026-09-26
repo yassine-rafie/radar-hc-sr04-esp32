@@ -66,16 +66,3 @@ El dashboard se actualizará automáticamente cada 100ms mostrando la distancia 
 *   `docs/steps.json`: Guía paso a paso de montaje.
 *   `specs/bom.json`: Lista de materiales.
 *   `schematic/main.sch`: Esquema del circuito.
-
-## Roadmap
-
-- [x] Diseño del circuito y simulación en Tinkercad
-- [x] Firmware ESP32 (servidor web + lectura del sensor)
-- [x] Dashboard web con visualización tipo radar
-- [ ] Montaje físico en protoboard
-- [ ] Pruebas con hardware real
-- [ ] Carcasa / montaje mecánico (servo para barrido de 0°-180°, opcional)
-
-## Autor
-
-Proyecto de **Carlos** ([@yassi](https://github.com/)) — parte de su aprendizaje autodidacta en desarrollo de hardware con ESP32.
