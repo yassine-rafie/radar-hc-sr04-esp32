@@ -1,0 +1,320 @@
+[
+  {
+    "order": 1,
+    "title": "Place the breadboard",
+    "description": "The breadboard serves as the physical foundation for the circuit. It provides the continuous power rails and the interconnected terminal rows required to route signals between the ESP32 and the HC-SR04 sensor. Without a stable base, the components cannot be reliably wired.",
+    "instructions": "Place the full-size breadboard on your work surface. Orient it so the power rails run along the top and bottom edges, with the notch at the top left. Ensure there is enough space on the left side (rows 1-10) to accommodate the ESP32 DevKit V1 without overlapping the component.",
+    "components": [],
+    "holes": [],
+    "highlightComponents": [],
+    "highlightPins": [],
+    "wires": [],
+    "notes": "Ensure the breadboard is flat and stable before proceeding."
+  },
+  {
+    "order": 2,
+    "title": "Place the ESP32 DevKit V1",
+    "description": "The ESP32 is the brain of the system, handling Wi-Fi communication, ultrasonic signal processing, and running the web server that serves the dashboard. It requires a 5V power supply via the VIN pin and ground connections to function correctly.",
+    "instructions": "Locate the ESP32 DevKit V1. Position it on the left side of the breadboard so that the USB connector faces away from you. Align the rows of pins with the breadboard terminal rows. Specifically, ensure the row 2b (3V3) aligns with row 2b, row 3b (EN) with row 3b, and so on, up to row 20b (VIN). The USB connector should be near the edge of the breadboard to allow access for power and data cables.",
+    "components": [
+      "esp32_1"
+    ],
+    "holes": [
+      "2b",
+      "3b",
+      "4b",
+      "5b",
+      "6b",
+      "7b",
+      "8b",
+      "9b",
+      "10b",
+      "11b",
+      "12b",
+      "13b",
+      "14b",
+      "15b",
+      "16b",
+      "17b",
+      "18b",
+      "19b",
+      "20b",
+      "2i",
+      "3i",
+      "4i",
+      "5i",
+      "6i",
+      "7i",
+      "8i",
+      "9i",
+      "10i",
+      "11i",
+      "12i",
+      "13i",
+      "14i",
+      "15i",
+      "16i",
+      "17i",
+      "18i",
+      "19i",
+      "20i"
+    ],
+    "highlightComponents": [
+      "esp32_1"
+    ],
+    "highlightPins": [],
+    "wires": [],
+    "notes": "Do not power the ESP32 yet. Ensure all pins are seated firmly in the breadboard holes."
+  },
+  {
+    "order": 3,
+    "title": "Wire the power rails",
+    "description": "The power rails (red for positive, black for negative) provide the 5V and ground distribution network for the entire circuit. Connecting these rails first ensures that all subsequent components can be powered immediately once the main power source is connected.",
+    "instructions": "Take a red jumper wire and connect the ESP32 VIN pin (row 20b) to the positive rail on the breadboard (rail_top_positive). Take a black jumper wire and connect the ESP32 GND_L pin (row 15b) to the negative rail on the breadboard (rail_top_negative). These connections establish the main power and ground loops for the board.",
+    "components": [
+      "esp32_1"
+    ],
+    "holes": [
+      "20b",
+      "rail_top_positive",
+      "15b",
+      "rail_top_negative"
+    ],
+    "highlightComponents": [
+      "esp32_1"
+    ],
+    "highlightPins": [
+      "VIN",
+      "GND_L"
+    ],
+    "wires": [
+      {
+        "from": "we_esp32_1_VIN",
+        "to": "we_bb_1_rail_top_positive",
+        "color": "red"
+      },
+      {
+        "from": "we_esp32_1_GND_L",
+        "to": "we_bb_1_rail_top_negative",
+        "color": "black"
+      }
+    ],
+    "notes": "Double-check that the red wire is connected to the positive rail and the black wire to the negative rail."
+  },
+  {
+    "order": 4,
+    "title": "Wire the HC-SR04 sensor power",
+    "description": "The HC-SR04 ultrasonic sensor requires a 5V supply to operate its transmitter and receiver. Wiring the VCC pin to the 5V rail ensures it receives stable power, while connecting GND to the common ground creates a shared reference for the signal return path.",
+    "instructions": "Locate the HC-SR04 sensor. Connect the sensor's VCC pin to the breadboard positive rail (rail_top_positive). Then, connect the sensor's GND pin to the breadboard negative rail (rail_top_negative). This establishes the power and ground for the sensor.",
+    "components": [
+      "hc_1"
+    ],
+    "holes": [
+      "rail_top_positive",
+      "26j",
+      "rail_top_negative",
+      "29j"
+    ],
+    "highlightComponents": [
+      "hc_1"
+    ],
+    "highlightPins": [
+      "VCC",
+      "GND"
+    ],
+    "wires": [
+      {
+        "from": "we_hc_1_VCC",
+        "to": "we_bb_1_rail_top_positive",
+        "color": "red"
+      },
+      {
+        "from": "we_hc_1_GND",
+        "to": "we_bb_1_rail_top_negative",
+        "color": "black"
+      }
+    ],
+    "notes": "The sensor is now powered. Ensure the sensor is placed on the right side of the breadboard to allow space for the resistors and signal wires."
+  },
+  {
+    "order": 5,
+    "title": "Place the 2kΩ pull-down resistor (R_top)",
+    "description": "The 2kΩ resistor (R_top) is connected between the ESP32 IO34 pin and the HC-SR04 ECHO pin. This acts as a pull-down resistor, ensuring the ECHO line defaults to a low state (0V) when the sensor is not transmitting, which prevents false readings due to floating input pins.",
+    "instructions": "Place the 2kΩ resistor (R_top) on the breadboard. Insert the resistor's pin 1 into hole 36a and pin 2 into hole 40a. Ensure the resistor body sits comfortably in the middle of the row without bridging the gap between columns e and f.",
+    "components": [
+      "r_top"
+    ],
+    "holes": [
+      "36a",
+      "40a"
+    ],
+    "highlightComponents": [
+      "r_top"
+    ],
+    "highlightPins": [
+      "pin1",
+      "pin2"
+    ],
+    "wires": [],
+    "notes": "Resistor orientation does not matter for a standard resistor, but ensure the legs are fully inserted."
+  },
+  {
+    "order": 6,
+    "title": "Place the 3.9kΩ pull-down resistor (R_bottom)",
+    "description": "The 3.9kΩ resistor (R_bottom) is connected between the HC-SR04 ECHO pin and the ESP32 IO35 pin. This provides an additional pull-down path to ground, further stabilizing the ECHO signal line and ensuring reliable signal integrity for the ultrasonic pulse detection.",
+    "instructions": "Place the 3.9kΩ resistor (R_bottom) on the breadboard. Insert the resistor's pin 1 into hole 40e and pin 2 into hole 44e. This places the resistor in the left bank of the breadboard, close to the ESP32's IO35 pin.",
+    "components": [
+      "r_bottom"
+    ],
+    "holes": [
+      "40e",
+      "44e"
+    ],
+    "highlightComponents": [
+      "r_bottom"
+    ],
+    "highlightPins": [
+      "pin1",
+      "pin2"
+    ],
+    "wires": [],
+    "notes": "Ensure the resistor is placed on the left side of the breadboard to avoid interfering with the HC-SR04 sensor legs."
+  },
+  {
+    "order": 7,
+    "title": "Wire the HC-SR04 signal pins",
+    "description": "The TRIG and ECHO pins are the communication interface between the ESP32 and the sensor. The TRIG pin sends the ultrasonic trigger pulse, and the ECHO pin returns the duration of the echo, which the ESP32 converts into distance measurements using the speed of sound.",
+    "instructions": "Connect a yellow jumper wire from the ESP32 IO32 pin (row 8a) to the HC-SR04 TRIG pin (row 27f). Then, connect another yellow jumper wire from the HC-SR04 ECHO pin (row 28f) to the resistor R_top pin 1 (hole 36b). This routes the signal through the pull-down network.",
+    "components": [
+      "hc_1",
+      "esp32_1",
+      "r_top"
+    ],
+    "holes": [
+      "8a",
+      "27f",
+      "28f",
+      "36b"
+    ],
+    "highlightComponents": [
+      "hc_1",
+      "esp32_1",
+      "r_top"
+    ],
+    "highlightPins": [
+      "IO32",
+      "TRIG",
+      "ECHO",
+      "pin1"
+    ],
+    "wires": [
+      {
+        "from": "we_esp32_1_IO32",
+        "to": "we_hc_1_TRIG",
+        "color": "yellow"
+      },
+      {
+        "from": "we_hc_1_ECHO",
+        "to": "we_r_top_pin1",
+        "color": "yellow"
+      }
+    ],
+    "notes": "The ECHO wire connects to the resistor on the left side of the breadboard, not directly to the sensor."
+  },
+  {
+    "order": 8,
+    "title": "Wire the pull-down resistors to ground",
+    "description": "Completing the pull-down networks involves connecting the other ends of the resistors to the common ground rail. This ensures that the ECHO signal line is pulled to 0V when the sensor is idle, preventing electrical noise from causing erratic measurements.",
+    "instructions": "Connect a black jumper wire from resistor R_top pin 2 (hole 40a) to the breadboard negative rail (rail_top_negative). Then, connect another black jumper wire from resistor R_bottom pin 2 (hole 44a) to the breadboard negative rail (rail_top_negative). This grounds both pull-down resistors.",
+    "components": [
+      "r_top",
+      "r_bottom"
+    ],
+    "holes": [
+      "40a",
+      "rail_top_negative",
+      "44a",
+      "rail_top_negative"
+    ],
+    "highlightComponents": [
+      "r_top",
+      "r_bottom"
+    ],
+    "highlightPins": [
+      "pin2"
+    ],
+    "wires": [
+      {
+        "from": "we_r_top_pin2",
+        "to": "we_bb_1_rail_top_negative",
+        "color": "black"
+      },
+      {
+        "from": "we_r_bottom_pin2",
+        "to": "we_bb_1_rail_top_negative",
+        "color": "black"
+      }
+    ],
+    "notes": "Verify that both resistors have one leg connected to the ECHO signal and the other leg connected to ground."
+  },
+  {
+    "order": 9,
+    "title": "Wire the ESP32 IO35 to ground",
+    "description": "The ESP32 IO35 pin is connected directly to the R_bottom resistor pin 1 (hole 40e). This completes the second pull-down path for the ECHO signal, ensuring the line is held low when the sensor is not active, which is critical for the accuracy of the pulseIn function.",
+    "instructions": "Connect a black jumper wire from the ESP32 IO35 pin (row 9a) to the resistor R_bottom pin 1 (hole 40e). This establishes the second ground connection for the pull-down network.",
+    "components": [
+      "esp32_1",
+      "r_bottom"
+    ],
+    "holes": [
+      "9a",
+      "40e"
+    ],
+    "highlightComponents": [
+      "esp32_1",
+      "r_bottom"
+    ],
+    "highlightPins": [
+      "IO35",
+      "pin1"
+    ],
+    "wires": [
+      {
+        "from": "we_esp32_1_IO33",
+        "to": "we_r_top_pin2",
+        "color": "yellow"
+      }
+    ],
+    "notes": "This step wires IO33 to R_top pin 2, which is connected to ground in the previous step."
+  },
+  {
+    "order": 10,
+    "title": "Wire the ESP32 IO33 to ground",
+    "description": "The ESP32 IO33 pin is connected to the R_top resistor pin 2 (hole 40b). This provides a direct ground connection for the first pull-down resistor, ensuring the ECHO signal line is pulled low when the sensor is not transmitting.",
+    "instructions": "Connect a black jumper wire from the ESP32 IO33 pin (row 9a) to the resistor R_top pin 2 (hole 40b). This completes the grounding of the first pull-down resistor.",
+    "components": [
+      "esp32_1",
+      "r_top"
+    ],
+    "holes": [
+      "9a",
+      "40b"
+    ],
+    "highlightComponents": [
+      "esp32_1",
+      "r_top"
+    ],
+    "highlightPins": [
+      "IO33",
+      "pin2"
+    ],
+    "wires": [
+      {
+        "from": "we_esp32_1_IO33",
+        "to": "we_r_top_pin2",
+        "color": "black"
+      }
+    ],
+    "notes": "Ensure the wire does not cross over any other components. The circuit is now complete."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "componentId": "esp32-devkit-v1",
+    "name": "ESP32 DevKit V1",
+    "quantity": 1,
+    "specs": "Radar ESP32 + HC-SR04"
+  },
+  {
+    "componentId": "hc-sr04",
+    "name": "HC-SR04 Ultrasonic Sensor",
+    "quantity": 1,
+    "specs": "Ultrasonic Ranging Module"
+  },
+  {
+    "componentId": "resistor-2000",
+    "name": "Resistor 2kΩ",
+    "quantity": 1,
+    "specs": "2kΩ"
+  },
+  {
+    "componentId": "resistor-3900",
+    "name": "Resistor 3.9kΩ",
+    "quantity": 1,
+    "specs": "3.9kΩ"
+  }
+]
